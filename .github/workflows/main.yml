@@ -14,9 +14,10 @@ jobs:
         flutter-version: '1.7.8+hotfix.4'
     - run: flutter pub get
     - run: flutter test
-    - run: flutter build apk --release
+    - run: flutter build apk --debug --split-per-abi
     - name: Create a Release APK
       uses: ChathurangaSandun/release-action@v1
-      with:        
+      with:
+        args: build apk --release
         artifacts: "build/app/outputs/apk/debug/*.apk"
         token: ${{ secrets.TOKEN }}

@@ -1,10 +1,4 @@
-on:
-  push:    
-    branches:    
-      - master                 
-    tags:        
-      - v1            
-      - v1.*          
+on: push
 name: Test, Build and Release apk
 jobs:
   build:
@@ -15,7 +9,7 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: '12.x'
-    - uses: chathurangasandun/flutter-action@v1
+    - uses: subosito/flutter-action@v1
       with:
         flutter-version: '1.7.8+hotfix.4'
     - run: flutter pub get
